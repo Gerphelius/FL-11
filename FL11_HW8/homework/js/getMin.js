@@ -9,4 +9,4 @@ function getMin() {
     return minValue;
 }
 
-console.log( getMin(10, 9, 10) );
+console.log(getMin(10, 9, 10));
