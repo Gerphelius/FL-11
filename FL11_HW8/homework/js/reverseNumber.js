@@ -12,7 +12,6 @@ function reverseNumber(num) {
             num = Math.floor(num / 10);
         }
     }
-
     return reversedNum;
 }
 
