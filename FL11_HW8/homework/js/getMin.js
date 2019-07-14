@@ -6,7 +6,7 @@ function getMin() {
             minValue = arguments[i];
         } 
     }
-    return( minValue );
+    return minValue;
 }
 
 console.log( getMin(10, 9, 10) );
