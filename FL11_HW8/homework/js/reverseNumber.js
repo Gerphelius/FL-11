@@ -13,7 +13,7 @@ function reverseNumber(num) {
         }
     }
 
-    return ( reversedNum );
+    return reversedNum;
 }
 
 console.log( reverseNumber(-625) );
