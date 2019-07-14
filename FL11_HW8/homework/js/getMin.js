@@ -1,8 +1,8 @@
 function getMin() {
     let minValue = arguments[0];
 
-    for( let i = arguments.length; i >= 1; i-- ) {
-        if ( arguments[i] < minValue ) {
+    for(let i = arguments.length; i >= 1; i--) {
+        if (arguments[i] < minValue) {
             minValue = arguments[i];
         } 
     }
