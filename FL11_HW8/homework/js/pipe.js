@@ -3,7 +3,7 @@ function pipe(num) {
        num = arguments[i](num);
     }
 
-    return( num );
+    return num;
 }
 
 function addOne(x) {
