@@ -1,0 +1,98 @@
+body {
+    color: rgb(130, 220, 255);
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-content: center;
+}
+
+header {
+   justify-self: center; 
+}
+
+h1 {
+    margin: 0;
+    align-self: center;
+}
+
+#button {
+    position: relative;
+    top: 7px;
+}
+
+hr {
+    height: 5px;
+    background-color: rgba(47, 156, 199, 0.246);
+    border: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: grid;
+    grid-template-columns: 24px auto 24px 24px;
+    cursor: grab;
+}
+
+#edit-form {
+    display: grid;
+    grid-template-columns: auto auto;
+    cursor: auto;
+}
+
+p {
+    margin: 0;
+}
+
+.button-delete, 
+.button-edit, 
+.button-active, 
+#save-btn {
+    cursor: pointer;
+    user-select: none;
+}
+
+#save-btn {
+    padding-left: 5px;
+}
+
+.holded-item {
+    cursor: pointer;
+    background-color: rgb(215, 233, 240);
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.button-inactive {
+    cursor: auto;
+    color: rgb(137, 152, 160);
+    user-select: none;
+}
+
+.button-active:hover {
+    color: rgb(176, 231, 255);
+}
+
+.button-active:active {
+    transform: scale(0.9, 0.9);
+}
+
+.button-delete:hover, .button-edit:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.button-delete:active, .button-edit:active {
+    transform: scale(1.0, 1.0);
+}
+
+#save-btn:hover {
+    transform: scale(1.1, 1.1);
+}
+
+#save-btn:active {
+    transform: scale(1.0, 1.0);
+}
