@@ -1,0 +1,63 @@
+@import "variables";
+
+header {
+    background-color: @header-background;
+}
+
+.menu__btns a {
+    color: @nav-btns-text;
+    font-weight: 500;
+
+    &:hover {
+        background-color: @blue;
+        color: @white-text;
+    }
+}
+
+hr {
+    background-color: @blue;
+}
+
+h1, h3 {
+    color: @blue;
+}
+
+figcaption, p, ul, span {
+    font-weight: 500;
+}
+
+.background {
+    color: @white-text;
+    background-color: @footer-background;
+}
+
+img {
+    width: 100%;
+}
+
+.card-decor(@color) {
+    figcaption {
+        background-color: @color;
+        color: @white-text;
+    }
+    
+    img {
+        border: 2px solid @color;
+    }
+}
+
+.cardio-kickboxing {
+    .card-decor(@red);
+}
+
+.fitness-xpress {
+    .card-decor(@blue);
+}
+
+.zumba {
+    .card-decor(@orange);
+}
+
+.bootcamp {
+    .card-decor(@green);
+}
