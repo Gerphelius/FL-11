@@ -1,0 +1,7 @@
+#spinner {
+  background: url("https://steamusercontent-a.akamaihd.net/ugc/951841177148216940/4C0E46016EE7ABF8440FCA7B9B5AB60EF55AA969/") no-repeat scroll center center rgba(255, 255, 255, 0.5);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
