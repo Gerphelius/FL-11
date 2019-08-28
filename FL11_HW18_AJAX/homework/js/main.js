@@ -92,7 +92,7 @@ function createUsersForm(username, userId) {
 }
 
 function createEditForm(e) {
-  const listOfUserInfo = document.createElement('ul');
+  const listOfUserInfo = document.createElement('div');
   listOfUserInfo.setAttribute('id', 'user-info');
   let userId = getUsersArrId(allUsers, e.path[1].id);
   const submitButton = document.createElement('button');
@@ -106,8 +106,9 @@ function createEditForm(e) {
       id.innerHTML = 'User id: ';
       listOfUserInfo.appendChild(id).appendChild(num);
       continue;
-    } else if (allUsers[userId][key] instanceof Object) {            // change
-      continue; 
+    } else if (allUsers[userId][key] instanceof Object) {
+      listOfUserInfo.appendChild(takeDeepInfo(allUsers[userId][key], key));
+      continue;
     }
     const paragraph = document.createElement('p');
     paragraph.innerHTML = key;
@@ -123,33 +124,67 @@ function createEditForm(e) {
   content.replaceChild(listOfUserInfo, usersList);
 } 
 
+function takeDeepInfo(obj, add) {
+  const userInfo = document.createElement('div');
+  for (let key in obj) {
+    if (obj[key] instanceof Object) {
+      userInfo.appendChild(takeDeepInfo(obj[key], key));
+      continue;
+    }
+    const paragraph = document.createElement('p');
+    if (add) {
+      paragraph.innerHTML = `${add}: ${key}`;
+    } else {
+      paragraph.innerHTML = key;
+    }
+    userInfo.appendChild(paragraph);
+    const editField = document.createElement('input');
+    editField.value = obj[key];
+    userInfo.appendChild(editField);
+  }
+  return userInfo;
+}
+
 function editUserInfo(e) {
   const editForm = document.getElementById('user-info');
-  const inputs = e.path[1].children;
+  const parag = editForm.querySelectorAll('p');
+  const inputs = editForm.querySelectorAll('input');
   const userId = getUsersArrId(allUsers, e.path[1].children[0].children[0].textContent);
-  for (let key in allUsers[userId]) {
-    for (let i = 1; i < inputs.length - 1; i += 2) {
-      if (inputs[i].innerHTML === key) {
-        if (inputs[i + 1].value === allUsers[userId][key]) {
-          continue;
+  
+  function objEdit(obj, add) {
+    let addInfo = '';
+    if (add) {
+      addInfo = add + ': ';
+    }
+    for (let key in obj) {
+      if (key === 'id') {
+        continue;
+      }
+      if (obj[key] instanceof Object) {
+        objEdit(obj[key], key);
+      }
+      for (let i = 1; i < parag.length; i++) {
+        if (parag[i].innerHTML === addInfo + key) {
+          if (inputs[i - 1].value === obj[key]) {
+            break;
+          }
+          obj[key] = inputs[i - 1].value;
+          break;
         }
-        allUsers[userId][key] = inputs[i + 1].value;
       }
     }
   }
+  objEdit(allUsers[userId])
   editForm.remove();
   updateUsers(allUsers[userId]);
 }
 
-function displayUsers(users, newUser) {
+function displayUsers(users) {
   const usersList = document.createElement('ol');
   usersList.setAttribute('id', 'users-list');
   content.appendChild(usersList);
 
   for (let i = 0; i < users.length; i++) {
-    if (newUser !== undefined && users[i].id === newUser.id) {
-      users[i] = newUser;
-    }
     createUsersForm(users[i].name, users[i].id);
   }
 }
@@ -170,6 +205,7 @@ function loading(state) {
 
 let usersUrl = 'https://jsonplaceholder.typicode.com/users';
 let allUsers;
+
 const btnGetUsers = document.getElementById('btn-get-users');
 const content = document.getElementById('content');
 const spinner = document.getElementById('spinner');
