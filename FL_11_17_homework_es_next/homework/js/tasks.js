@@ -4,9 +4,9 @@ function maxElement(arr) {
     return arr.reduce((currentMax, nextValue) => Math.max(currentMax, nextValue), 0)
 }
 
-const array = [41, 122, 35, 14, 0, 55, 136, 37, 128, 9, 0];
+const arrayNum = [41, 122, 35, 14, 0, 55, 136, 37, 128, 9, 0];
 
-console.log(maxElement(array)); // 136
+console.log(maxElement(arrayNum)); // 136
 
 ///////////////////////////////////////// Second /////////////////////////////////////////////
 
@@ -42,7 +42,7 @@ function addUniqueId(obj) {
                 clonedObj[key] = obj[key];
             }
         }
-        clonedObj.id = Symbol(Math.floor(Math.random() * 100 + 1));
+        clonedObj.id = Symbol();
     }(obj));
     return clonedObj;
 }
@@ -85,8 +85,8 @@ function findUniqueElements(arr) {
     return(arr);
 }
 
-const array = [1, 1, 23, 3, 4, 5, 6, 5, 4, 23, 2, 1, 1, 1, 1, 1];
-console.log(findUniqueElements(array));
+const arrayForSort = [1, 1, 23, 3, 4, 5, 6, 5, 4, 23, 2, 1, 1, 1, 1, 1];
+console.log(findUniqueElements(arrayForSort));
 
 ///////////////////////////////////////// Sixth ////////////////////////////////////////////
 
@@ -108,7 +108,6 @@ function add(a = 'n/a', b = 'n/a') {
 }
 
 add(1, 3);
-add(1);
 
 ///////////////////////////////////////// Eighth ///////////////////////////////////////////
 
