@@ -1,0 +1,148 @@
+@mixin button {
+    background-color: $btnColor;
+    border: none;
+    color: $btnFontColor;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+body {
+    background-image: $backgroundImage;
+    background-size: cover; 
+    font-family: $headerFontFamily;
+}
+
+#content {
+    background-color: $contentAndResultBackColor;
+
+    #header {
+        font-size: 20px;
+        letter-spacing: 3.6px;
+        color: $headerTextColor;
+        padding-left: 40px;
+        
+        h1 {
+            margin-top: 0;
+            padding-top: 20px;
+        }
+    }
+
+    hr {
+        border: 2px solid $headerTextColor;
+    }
+
+    p {
+        color: $contentColor;
+        padding-left: 40px;
+    }
+
+    ol {
+        color: $contentColor;
+        padding-left: 80px;
+    }
+
+    button {
+        @include button;
+        margin: 50px 40px;
+    }
+
+    button:hover {
+        background-color: $hoverBackColor;
+    }
+}
+
+#play-area {
+    display: none;
+    grid-template-rows: auto auto auto;
+
+    #battle-results {
+        color: $headerTextColor;
+        background-color: rgba(116, 89, 39, 0.596);
+        height: 260px;
+        padding-left: 40px;
+
+        #user-choise {
+            color: $userChoiseColor 
+        }
+
+        #comp-choise {
+            color: $compChoiseColor
+        }
+
+        #result {
+            color: $resultColor; 
+        }
+
+        span {
+            color: $spanColor;
+        }
+
+        h2 {
+            color: $h2Color;
+            font-size: 30px;
+        }
+        
+        p {
+            padding-left: 20px;
+        }
+    }
+
+    h3 {
+        justify-self: center;
+        color: $textColor;
+        font-size: 50px;
+        margin: 20px 0;
+    }
+
+    #buttons {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 50px;
+        height: 490px;
+        justify-self: center;
+
+        img {
+            width: 350px;
+            height: auto;
+        }
+
+        button {
+            @include button;
+            height: 100px;
+            width: 400px;
+        }
+
+        button:hover {
+            background-color: $hoverBackColor;
+        }
+
+        .btn {
+            display: inherit;
+            grid-template-rows: auto 50%;
+            background-color: $btnsBackColor;
+        }
+    }
+}
+
+#final-result-area {
+    display: none;
+    grid-template-rows: auto auto;
+    color: $textColor;
+    font-size: 30px;
+    background-color: $contentAndResultBackColor;
+    justify-items: center;
+
+    #btn-reset {
+        @include button;
+        width: 400px;
+        margin-bottom: 10px; 
+    }
+
+    #btn-reset:hover {
+        background-color: $hoverBackColor;
+    }
+}

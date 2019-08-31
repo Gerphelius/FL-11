@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FL 11 19 Tools</title>
+</head>
+<body>
+    <div id="content">
+        <div id="header">
+            <h1>Rock / Paper / Scissors Reborn</h1> 
+        </div>
+        <hr>
+        <div id="text">
+            <p id="description">
+                Welcome stranger! You just found a well known game 'Rock, Paper, Scissors'. I know what are you thinking about now.
+                You think that this is another one 'Rock, Paper, Scissors' that you played billion times when you were a kid. But you're 
+                completely wrong! Everything has changed. From now Rock can beat Paper, Paper can beat Scissors and you know what, Scissors
+                can beat the god damn Rock. Enjoy the BUTTLE!
+            </p>
+            <p id="rules">There is some rules for you to remember before hit the button:</p>
+            <ol>
+                <li>Rock beats Paper;</li>
+                <li>Scissors beats Rock;</li>
+                <li>Paper beats Scissors;</li>
+            </ol>
+            <p id="before-start">So, that's all you need to know before battle. LET'S BATTLE BEGINS!</p>
+        </div>
+        <hr>
+        <button id="btn-lets-play">LET'S BATTLE</button>
+    </div>
+
+    <div id="play-area">
+        <div id="battle-results">
+            <h2>BATTLE RESULT:</h2>
+            <p id="round">Round <span id="current-round"></span></p>
+            <p id="user-choice">Your choice is: <span id="your-choice"></span></p>
+            <p id="comp-choice">Opponent choice is: <span id="opponent-choice"></span></p>
+            <p id="result">Result: <span id="round-result"></span></p>
+        </div>
+        <h3>Choose your fighter</h3>
+        <div id="buttons">
+            <div class="btn" id="btn-rock">
+                <img src="img/rock.png" alt="rock">
+                <button id="rock">ROCK</button>
+            </div>
+            <div class="btn" id="btn-paper">
+                <img src="img/paper.png" alt="paper">
+                <button id="paper">PAPER</button>
+            </div>
+            <div class="btn" id="btn-scissors">
+                <img src="img/scissors.png" alt="scissors">
+                <button id="scissors">SCISSORS</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="final-result-area">
+        <h2 id="winner"></h2>
+        <button id="btn-reset">Reset</button>
+    </div>
+</body>
+</html>
